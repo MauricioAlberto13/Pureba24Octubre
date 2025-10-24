@@ -24,7 +24,7 @@ namespace BL
 
             try
             {
-                int filasAfectas = _context.Database.ExecuteSql($"SP_Insertar, {usuario.Nombre},{usuario.Apellidos},{usuario.Edad},{usuario.Fecha} ");
+                int filasAfectas = _context.Database.ExecuteSql($"SP_Insertar {usuario.Nombre},{usuario.Apellidos},{usuario.Edad},{usuario.Fecha} ");
 
                 if (filasAfectas > 0)
                 {
@@ -56,7 +56,7 @@ namespace BL
 
             try
             {
-                int filasAfectas = _context.Database.ExecuteSql($"SP_UpdateUsuario,{usuario.IdUsuario}, {usuario.Nombre},{usuario.Apellidos},{usuario.Edad},{usuario.Fecha} ");
+                int filasAfectas = _context.Database.ExecuteSql($"SP_UpdateUsuario {usuario.IdUsuario}, {usuario.Nombre},{usuario.Apellidos},{usuario.Edad},{usuario.Fecha} ");
 
                 if (filasAfectas > 0)
                 {
@@ -87,7 +87,7 @@ namespace BL
 
             try
             {
-                int filasAfectas = _context.Database.ExecuteSql($"SP_DeleteUser,{IdUsuario}");
+                int filasAfectas = _context.Database.ExecuteSql($"SP_DeleteUser {IdUsuario}");
 
                 if (filasAfectas > 0)
                 {

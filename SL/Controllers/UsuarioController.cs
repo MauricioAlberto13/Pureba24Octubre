@@ -96,6 +96,36 @@ namespace SL.Controllers
                 
             }
         }
+        [HttpDelete]
+        [Route("Delete/{IdUsuario}")]
+        public IActionResult Delete(int IdUsuario)
+        {
+            ML.Result result = _usuario.Delete(IdUsuario);
+            if (result.Correct)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return BadRequest(result);
+            }
+
+        }
+        [HttpGet]
+        [Route("GetByID")]
+        public IActionResult GetById (int IdUsuario)
+        {
+            ML.Result result = _usuario.GetByID(IdUsuario);
+
+            if (result.Correct)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return BadRequest(result);
+            }
+        }
          
     }
 }
