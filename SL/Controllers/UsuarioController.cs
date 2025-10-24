@@ -93,8 +93,9 @@ namespace SL.Controllers
             else
             {
                 return BadRequest(result);
+                
             }
         }
-
+         
     }
 }
