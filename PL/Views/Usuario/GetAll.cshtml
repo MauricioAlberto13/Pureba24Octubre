@@ -8,9 +8,9 @@
 
 <h1>GetALL</h1>
 
+<a href="@Url.Action("Form","Usuario")" class="btn btn-success">  Agregar</a>
 
-
-<table>
+<table class="table-bordered">
 
     <tr>
         <th>Id</th>
@@ -19,16 +19,30 @@
         <th>Edad</th>
         <th>Fecha de Nacimiento </th>
 
+        <th>Editar</th>
+        <th>Actualizar</th>
+
     </tr>
     @foreach (ML.Usuario usuario in Model.Usuarios)
     {
     <tr>
-        
+
             <td> @usuario.IdUsuario</td>
             <td> @usuario.Nombre</td>
             <td> @usuario.Apellidos</td>
             <td> @usuario.Edad</td>
             <td> @usuario.Fecha</td>
+
+            <td> <a href="@Url.Action("Form","Usuario", new { IdUsuario = usuario.IdUsuario})" class="btn btn-warning">
+                Editar
+            </a> </td>
+            <td>
+                <a href="@Url.Action("Delete","Usuario", new { IdUsuario = usuario.IdUsuario})" class="btn btn-danger">
+                Eliminar
+            </a> </td>
+
+
+     
        
     </tr>
         }
